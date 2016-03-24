@@ -8,79 +8,64 @@
 </head>
 
 <body ng-app="candidatePortal">
+  <span ng-init="candidates=[
+    {name:'Joe King',
+      work_experiences:[
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'],
+      technical_skills:[
+        'Mauris ipsum. Nul-la metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.'],
+      interests:[
+        'Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus.',
+        'Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus.']
+      },
+      {name:'Bob Wire',
+        work_experiences:[
+          'Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula.',
+          'Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.'],
+        technical_skills:[
+          'In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.',
+          'Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien.'],
+        interests:[
+          'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.']
+        },
+        {name:'Stan Dupster',
+          work_experiences:[
+            'Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi.',
+            'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'],
+          technical_skills:[
+            'Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque.',
+            'Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.'],
+          interests:[
+          'Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.',
+          'Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.']
+          }]"></span>
   <header><h1>Candidate Profiles</h1></header>
   <div class="container">
     <ul class="tabs">
-        <li>
-            <input type="radio" name="tabs" id="tab1" checked />
-            <label for="tab1">Joe King</label>
-            <div id="tab-content1" class="tab-content">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h4>Work Experience</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                  </div>
-                  <div class="col-md-4">
-                    <h4>Technical Skills</h4>
-                    <p>Mauris ipsum. Nul-la metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
-                  </div>
-                  <div class="col-md-4">
-                    <h4>Interests</h4>
-                    <p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus.
-                    <p>Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus.
-                  </div>
-                </div>
-              </div>
-        </li>
-
-        <li>
-            <input type="radio" name="tabs" id="tab2" />
-            <label for="tab2">Bob Wire</label>
-            <div id="tab-content2" class="tab-content">
+        <li ng-repeat="candidate in candidates">
+          <input type="radio" name="tabs" id="tab{{$index}}" ng-checked="$index===0"/>
+          <label for="tab{{$index}}">{{candidate.name}}</label>
+            <div id="tab-content{{$index}}" class="tab-content">
               <div class="row">
                 <div class="col-md-4">
                   <h4>Work Experience</h4>
-                  <p>Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula.
-                  <p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+                  <p ng-repeat="work in candidate.work_experiences">{{work}}</p>
                 </div>
                 <div class="col-md-4">
                   <h4>Technical Skills</h4>
-                  <p>In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
-                  <p>Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien.
+                  <p ng-repeat="skill in candidate.technical_skills">{{skill}}</p>
                 </div>
                 <div class="col-md-4">
                   <h4>Interests</h4>
-                  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.
-                </div>
-              </div>
-            </div>
-        </li>
-
-        <li>
-            <input type="radio" name="tabs" id="tab3" />
-            <label for="tab3">Stan Dupster</label>
-            <div id="tab-content2" class="tab-content">
-              <div class="row">
-                <div class="col-md-4">
-                  <h4>Work Experience</h4>
-                  <p>Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi.
-                </div>
-                <div class="col-md-4">
-                  <h4>Technical Skills</h4>
-                  <p>Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque.
-
-        <p>Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-                </div>
-                <div class="col-md-4">
-                  <h4>Interests</h4>
-                  <p>Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.
-                  <p>Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
+                  <p ng-repeat="interest in candidate.interests">{{interest}}</p>
                 </div>
               </div>
             </div>
         </li>
     </ul>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js" charset="utf-8"></script>
+  <script src="src/app.js"></script>
 </body>
 </html>
