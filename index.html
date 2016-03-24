@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body ng-app="candidatePortal">
+<body ng-app="candidatePortal" ng-cloak="true">
   <span ng-init="candidates=[
     {name:'Joe King',
       work_experiences:[
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
-        'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'],
+        'Class aptent taciti tsociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'],
       technical_skills:[
         'Mauris ipsum. Nul-la metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.'],
       interests:[
@@ -46,7 +46,7 @@
   <div class="container">
     <ul class="tabs">
         <li ng-repeat="candidate in candidates">
-          <input type="radio" name="tabs" id="tab{{$index}}" ng-checked="$index===0"/>
+          <input type="radio" name="tabs" id="tab{{$index}}" ng-checked="$first"/>
           <label for="tab{{$index}}">{{candidate.name}}</label>
             <div id="tab-content{{$index}}" class="tab-content">
               <div class="row">
@@ -58,10 +58,7 @@
                   <h4>Technical Skills</h4>
                   <p ng-repeat="skill in candidate.technical_skills">{{skill}}</p>
                 </div>
-                <div class="col-md-4">
-                  <h4>Interests</h4>
-                  <p ng-repeat="interest in candidate.interests">{{interest}}</p>
-                </div>
+                <portfolio-section></portfolio-section>
               </div>
             </div>
         </li>
@@ -69,5 +66,6 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js" charset="utf-8"></script>
   <script src="src/app.js" charset="utf-8"></script>
+  <script src="src/appDirectives.js" charset="utf-8"></script>
 </body>
 </html>

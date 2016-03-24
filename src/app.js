@@ -1,1 +1,3 @@
-angular.module('candidatePortal',[]);
+(function() {
+  angular.module('candidatePortal',[]);
+})();

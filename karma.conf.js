@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular-mocks.js',
       'src/**/*.js',
       'test/**/*Spec.js'
     ],
@@ -67,5 +68,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};
