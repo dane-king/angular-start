@@ -9,9 +9,22 @@ describe("Directives", function () {
           return element;
     };
   }));
-
-  it('should parse template',function(){
-      var el= compileFn('<portfolio-section></portfolio-section>');
-      expect(el.html()).toEqual('<div class="col-md-4"><h4>Interests</h4><!-- ngRepeat: interest in candidate.interests --></div>');
+  describe('Parse directive', function() {
+      var el, isolatedScope;
+      beforeEach(function () {
+        el= compileFn('<portfolio-section items="[\'item1\',\'item2\']" header="Test"></portfolio-section>');
+        isolatedScope=el.isolateScope();
+      });
+      it('should parse template',function(){
+          expect(el.html()).toContain('<h4 class="ng-binding">Test</h4>');
+          expect(el.html()).toContain('<p ng-repeat="item in items" class="ng-binding ng-scope">item1</p>');
+          expect(el.html()).toContain('<p ng-repeat="item in items" class="ng-binding ng-scope">item2</p>');
+      });
+      it("should pass in a list of items", function () {
+          expect(isolatedScope.items).toEqual(['item1','item2']);
+      });
+      it("should pass in a header", function () {
+          expect(isolatedScope.header).toBe('Test');
+      });
   });
 });

@@ -50,15 +50,9 @@
           <label for="tab{{$index}}">{{candidate.name}}</label>
             <div id="tab-content{{$index}}" class="tab-content">
               <div class="row">
-                <div class="col-md-4">
-                  <h4>Work Experience</h4>
-                  <p ng-repeat="work in candidate.work_experiences">{{work}}</p>
-                </div>
-                <div class="col-md-4">
-                  <h4>Technical Skills</h4>
-                  <p ng-repeat="skill in candidate.technical_skills">{{skill}}</p>
-                </div>
-                <portfolio-section></portfolio-section>
+                <portfolio-section items="candidate.work_experiences" header="Work Experience"></portfolio-section>
+                <portfolio-section items="candidate.technical_skills" header="Technical Skills"></portfolio-section>
+                <portfolio-section items="candidate.interests" header="Interests"></portfolio-section>
               </div>
             </div>
         </li>
