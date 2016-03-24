@@ -1,3 +1,5 @@
+<!-- http://codepen.io/wallaceerick/pen/ojtal -->
+
 * {
   padding: 0;
   margin: 0; }
@@ -6,4 +8,81 @@ html, body {
   font-family: 'Lucida', serif;
   font-size:14px;
   height:100%;;
+}
+body{
+  position: relative;
+}
+
+.tabs {
+  width: 100%;
+  float: none;
+  list-style: none;
+  position: relative;
+  margin: 100px 0 0 10px;
+  text-align: left;
+}
+.tabs li {
+  float: left;
+  display: block;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.tabs label {
+  display: block;
+  padding: 14px 21px;
+  border-radius: 2px 2px 0 0;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #52525c;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.tabs label:hover {
+  background: #a8babf;
+}
+.tabs .tab-content {
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 25px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  background: #d5dcde;
+}
+.tab-content:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.tabs [id^="tab"]:checked + label {
+  top: 0;
+  padding-top: 17px;
+  background: #bdc4c6;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+  display: block;
+}
+
+header{
+  background-color:#100841;
+  height: 75px;
+  text-align: center;
+  padding-top:5px;
+}
+header h1{
+  color: #fff;
 }
