@@ -42,7 +42,8 @@
           }]"></span>
   <header>
     <h1>Candidate Profiles</h1>
-  </header>
+  </head                <div add-item items="candidate.work_experiences"  header="Work Experience" id="work"></div>
+er>
   <div class="container">
     <ul class="tabs">
         <li ng-repeat="candidate in candidates">
@@ -51,14 +52,18 @@
             <div id="tab-content{{$index}}" class="tab-content">
               <div class="row">
                 <portfolio-section items="candidate.work_experiences" header="Work Experience"></portfolio-section>
-                <portfolio-section items="candidate.technical_skills" header="Technical Skills"></portfolio-section>
+                <div add-item items="candidate.work_experiences"  header="Work Experience" id="work"></div>
+                <portfolio-section items="candidate.technical_skills" id="work"></portfolio-section>
+                <div add-item items="candidate.technical_skills" id="skill"></div>
                 <portfolio-section items="candidate.interests" header="Interests"></portfolio-section>
+                <div add-item items="candidate.interests"   id="interest"></div>
+
               </div>
             </div>
         </li>
     </ul>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.js" charset="utf-8"></script>
   <script src="src/app.js" charset="utf-8"></script>
   <script src="src/appDirectives.js" charset="utf-8"></script>
 </body>

@@ -46,6 +46,15 @@ body{
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+.section_input input{
+  width:25%;
+}
+
+.section_input label{
+  background-color: inherit;;
+  padding:10px 0px;
+}
+
 .tabs label:hover {
   background: #a8babf;
 }

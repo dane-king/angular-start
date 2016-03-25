@@ -9,7 +9,27 @@ describe("Directives", function () {
           return element;
     };
   }));
-  describe('Parse directive', function() {
+
+  describe('Add to List Directive', function() {
+    var el, isolatedScope;
+    beforeEach(function () {
+      el = compileFn('<div add-item items="[\'item1\',\'item2\']" id="test"></div>');
+      isolatedScope=el.isolateScope();
+    });
+    it('should parse template',function(){
+        expect(el.html()).toContain('<label for="test">Add to List</label>');
+        expect(el.html()).toContain('<input type="text" name="test_input" id="test" placeholder="Enter a new test item">');
+        expect(el.html()).toContain('<button ng-click="add_item()" id="test_add_btn">Add to List</button>');
+    });
+
+    it("should add to list ", function () {
+      el.find('input')[0].value="item3";
+      el.find('button')[0].click();
+      expect(isolatedScope.items).toContain('item3');
+    });
+
+  });
+  describe('Portfolio Section Directive', function() {
       var el, isolatedScope;
       beforeEach(function () {
         el= compileFn('<portfolio-section items="[\'item1\',\'item2\']" header="Test"></portfolio-section>');
